@@ -1,8 +1,25 @@
 
-import { TextField } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
+import { useState } from 'react';
 import './App.css';
+import { db } from "./firebase-config"
+import firebase from "firebase"
 
 function App() {
+const [todoInput, setTodoInput] = useState('');
+
+function addTodo(e) {
+  e.preventDefault();
+  console.log(`your adding a todo`);
+  db.collection("todos").add({
+    inprogress: true,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    todo: todoInput,
+  })
+  setTodoInput("");
+}
+
+
   return (
     <div className="App"  style={{
       display: "flex",
@@ -11,12 +28,17 @@ function App() {
     }}>
      <div>
      <h1>TODO App 📝</h1>
-     <TextField id="standard-basic" label="What to do" 
+     <form>
+     <TextField id="standard-basic" label="What to do"
+     value={todoInput} 
+     onChange={(e) => setTodoInput(e.target.value)}
      style={{
        maxWidth: "300px",
        width: "90vw",
        
      }}/>
+<Button type="submit" variant="contained" onClick={addTodo}>Add</Button>
+</form>
      </div>
     </div>
   );
