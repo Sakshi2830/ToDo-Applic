@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { db } from "./firebase-config"
 import firebase from "firebase"
+import TodoListItems from './Todo';
+
+
 
 function App() {
 const [todoInput, setTodoInput] = useState('');
@@ -62,7 +65,8 @@ function addTodo(e) {
 </form>
 
 {todos.map((todo) =>(
-  <p>{todo.todo}</p>
+ <TodoListItems todo={todo.todo} inprogress={todo.inprogress} id={todo.id} />
+ 
 ))}
      </div>
     </div>
