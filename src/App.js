@@ -31,14 +31,22 @@ function getTodos() {
 
 function addTodo(e) {
   e.preventDefault();
+//for avoiding blamk input
+  if(todoInput === ""){
+    setTodoInput([...todos,todoInput]);
+    setTodoInput("");
+    console.log("nothin is there ");
+  }
+else{
   console.log(`your adding a todo`);
   db.collection("todos").add({
     inprogress: true,
     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     todo: todoInput,
+  
   })
   setTodoInput("");
-}
+}}
 
 
   return (
