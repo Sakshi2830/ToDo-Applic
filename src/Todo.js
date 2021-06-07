@@ -1,5 +1,5 @@
 import { Button, ListItem, ListItemText } from '@material-ui/core'
-
+import './Todo.css'
 import React from 'react'
 import { db } from './firebase-config'
 
@@ -16,7 +16,7 @@ export default function TodoListItems({todo, inprogress, id}) {
     }
 
     return (
-        <div style={{display: "flex"}}>
+        <div className="showTodo" style={{display: "flex"}}>
             <ListItem >
            <ListItemText primary={todo} 
            secondary={inprogress ? "In Progress" : "Completed"} />

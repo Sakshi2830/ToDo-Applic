@@ -18,6 +18,7 @@ useEffect(() => {
 
 function getTodos() {
   db.collection("todos").onSnapshot(function (querySnapshot) {
+    
     setTodos(
       querySnapshot.docs.map((doc) => ({
         id: doc.id,
@@ -25,11 +26,7 @@ function getTodos() {
         inprogress: doc.data().inprogress,
       }))
     );     
-
   })
-
-  
-  
 }
 
 function addTodo(e) {
@@ -51,14 +48,17 @@ function addTodo(e) {
       alignItems: "center"
     }}>
      <div>
-     <h1>TODO App 📝</h1>
+     <h1 className="titlee" style={{
+       textAlign: "center",
+    }}> 📝 Let's Do It 📝</h1>
      <form>
-     <TextField id="standard-basic" label="What to do"
+     <TextField id="standard-basic" label="Step forward by doing this🎯"
      value={todoInput} 
      onChange={(e) => setTodoInput(e.target.value)}
      style={{
        maxWidth: "300px",
        width: "90vw",
+       
        
      }}/>
 <Button type="submit" variant="contained" onClick={addTodo}>Add</Button>

@@ -5,9 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: url(https://cdn.wallpapersafari.com/23/96/sSjCqQ.jpg); */
+  background-color:#d6c29b;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.titlee{
+ padding: 3 px;
+  margin: 0.5rem;
+  background-color: rgb(208, 173, 173);
+  border: solid black 2px;
+  border-radius: 10px;
+  color: #3C403D;
 }
